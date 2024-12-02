@@ -2,3 +2,24 @@
 SELECT model, ram, screen
 FROM Laptop
 WHERE price > 1000
+
+Задание 4
+SELECT code, model, color, type, price
+FROM Printer
+WHERE color = 'y'
+ORDER BY code DESC
+
+Задание 5
+SELECT model, speed, hd
+FROM PC
+WHERE (cd = '12x'or cd = '24x') and price <600
+
+Задание 6 
+SELECT DISTINCT maker, speed
+FROM product INNER JOIN laptop on product.model = laptop.model
+WHERE laptop.hd >=10
+
+Задание 10
+SELECT model, price
+FROM printer
+WHERE price = (SELECT MAX(price) FROM printer)
