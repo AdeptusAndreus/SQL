@@ -80,6 +80,10 @@ WHERE maker = 'A')
  НО  ПОЧЕМУ-ТО показывает 608 вместо 606
 
 Задание 14
+SELECT Classes.class, Ships.name, Classes.country
+FROM Ships
+JOIN Classes ON Ships.class = Classes.class
+WHERE Classes.numguns >= 10
 
 
 Задание 15
