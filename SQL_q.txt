@@ -1,0 +1,89 @@
+Задание 3
+SELECT model, ram, screen
+FROM Laptop
+WHERE price > 1000
+
+Задание 4
+SELECT code, model, color, type, price
+FROM Printer
+WHERE color = 'y'
+ORDER BY code DESC
+
+Задание 5
+SELECT model, speed, hd
+FROM PC
+WHERE (cd = '12x'or cd = '24x') and price <600
+
+Задание 6 
+SELECT DISTINCT maker, speed
+FROM product INNER JOIN laptop on product.model = laptop.model
+WHERE laptop.hd >=10
+
+Задание 10
+SELECT model, price
+FROM printer
+WHERE price = (SELECT MAX(price) FROM printer)
+
+-------------------------------------------------------
+
+ПРОШЛОЕ ДЗ!!!
+
+
+Задание 7 
+SELECT p.model, price
+FROM pc
+JOIN Product p ON PC.model = p.model
+WHERE maker = 'B'
+UNION 
+SELECT p.model, price
+FROM printer pr
+JOIN Product p on pr.model = p.model 
+WHERE maker = 'B'
+UNION 
+SELECT p.model, price
+FROM laptop lp 
+JOIN Product p ON lp.model = p.model
+WHERE maker = 'B'
+
+Задание 8
+SELECT DISTINCT p.maker
+FROM Product p INNER JOIN PC ON p.model = PC.model
+WHERE p.maker != 'Laptop' AND p.maker = 'E'
+
+Задание 9 
+SELECT DISTINCT maker
+FROM product JOIN PC ON Product.model = PC.model
+WHERE PC.speed >= 450 AND Product.type = 'PC'
+
+-------------------------------------------------------
+
+Week_2
+
+-------------------------------------------------------
+
+Задание 11
+SELECT AVG(speed) AS AVG_Speed
+FROM PC
+
+Задание 12
+SELECT AVG(speed) AS AVG_Speed
+FROM Laptop
+WHERE price > 1000
+
+Задание 13
+SELECT AVG(speed) AS AVG_Speed
+FROM PC 
+WHERE speed IN (
+SELECT  speed 
+FROM product 
+WHERE maker = 'A')
+ НО  ПОЧЕМУ-ТО показывает 608 вместо 606
+
+Задание 14
+
+
+Задание 15
+SELECT DISTINCT hd
+FROM PC
+GROUP BY hd
+HAVING hd < 40.0
